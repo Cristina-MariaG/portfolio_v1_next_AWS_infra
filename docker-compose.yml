@@ -15,16 +15,4 @@ services:
       - ./.next:/app/.next
     environment:
       - NODE_ENV=development
-      # - WATCHPACK_POLLING=true
-      # - CHOKIDAR_USEPOLLING=true
-    # develop:
-    #   watch:
-    #     - action: sync # Synchronise les fichiers modifiés
-    #       path: ./src # dossier local à surveiller
-    #       target: /app/src # dossier dans le conteneur où copier
-    #       ignore:
-    #         - node_modules/
-    #     - action: rebuild # rebuild l'image si package.json change
-    #       path: package.json
     command: npm run dev
-# "dev": "WATCHPACK_POLLING=true next dev", pakage.json
