@@ -21,7 +21,10 @@ export default async function RootLayout({ params, children }: { params: Promise
 
   return (
     <html lang='fr'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black
+      dark:bg-black dark:text-white`}
+      >
         <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
       </body>
     </html>
