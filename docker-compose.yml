@@ -1,0 +1,17 @@
+services:
+  frontend:
+    image: cristina_ghinda
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cristina_ghinda_container
+    restart: unless-stopped
+    # env_file: .env
+    ports:
+      - '3000:3000'
+    # volumes:
+    #   - .:/application
+    #   - /application/node_modules # Évite que le node_modules local écrase celui du conteneur
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
