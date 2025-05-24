@@ -19,3 +19,24 @@ body {
   background: #f2f1ea;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.flash {
+  transition: transform 0.9s ease;
+}
+
+.flash:hover {
+  animation: shakeX 0.9s ease-in-out infinite;
+}
+
+@keyframes shakeX {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px);
+  }
+  75% {
+    transform: translateY(15px);
+  }
+}
