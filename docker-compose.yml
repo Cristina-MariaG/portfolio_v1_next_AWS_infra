@@ -1,9 +1,8 @@
 services:
   frontend:
     image: cristina_ghinda
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
+    # si on met build:  context: . dockerfile: Dockerfile ça cherche l'image sur internet et sinon ça la reconstruit sans chercher en local
     container_name: cristina_ghinda_container
     restart: unless-stopped
     # env_file: .env

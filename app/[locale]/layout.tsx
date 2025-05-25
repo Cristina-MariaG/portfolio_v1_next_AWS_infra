@@ -29,6 +29,7 @@ export default async function RootLayout({ params, children }: { params: Promise
       dark:bg-black dark:text-white`}
       >
         <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
+        <div id='modal-root' />
       </body>
     </html>
   );

@@ -1,17 +1,12 @@
 'use client';
 
-import { useChangeLocale, useCurrentLocale, useI18n } from '@/locales/client';
 import Initials from '@/components/page/Initials';
 import Menu from '@/components/page/Menu';
-import Image from 'next/image';
 import ThemeToggle from '../page/ThemeToogle';
 import LanguageSelector from '../page/LanguageSelector';
 import { useEffect, useState } from 'react';
 
 export default function Header({ timerValue }: { timerValue: number }) {
-  const t = useI18n();
-  const locale = useCurrentLocale();
-  const changeLocale = useChangeLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -30,7 +25,7 @@ export default function Header({ timerValue }: { timerValue: number }) {
       <div className='w-[40%] '>
         <div className='flex pt-3'>
           <div className='flex-1 '>
-            <Initials />
+            <Initials modalOn={false} />
           </div>
           <div className='flex-1 flex justify-end  p-8'>
             <Menu />
