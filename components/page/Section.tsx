@@ -35,11 +35,11 @@ export default function Section({ timerValue }: { timerValue: number }) {
         </div>
       </div>
       <div className='w-[30%] h-24 relative flex justify-center items-center'>
-        <div className='circle-container'>
+        {/* <div className='circle-container'>
           <div className='move-circle'>
             <div className='ball' />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

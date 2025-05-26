@@ -14,12 +14,12 @@ export default function Modal({ isOpen, onClose, children }: { isOpen: boolean; 
   return createPortal(
     <div className='fixed inset-0 bg-black  z-50 flex flex-col'>
       <div className='flex justify-between p-4'>
-        <Initials modalOn={true} />
+        <Initials modalOn={isOpen} />
         <button onClick={onClose} className='text-white text-3xl hover:text-gray-300'>
           ✕
         </button>
       </div>
-      <div className='text-white px-4'>{children}</div>
+      <div className='text-white px-10'>{children}</div>
     </div>,
     document.getElementById('modal-root')!
   );

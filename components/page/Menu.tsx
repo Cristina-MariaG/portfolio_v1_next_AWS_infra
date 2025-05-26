@@ -5,15 +5,21 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useChangeLocale, useCurrentLocale, useI18n } from '@/locales/client';
 import { useState } from 'react';
 import Modal from './Modal';
-import Header from '../common/Header';
-import Initials from './Initials';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import MenuItem from './MenuItem';
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useI18n();
-  const locale = useCurrentLocale();
-  const changeLocale = useChangeLocale();
 
+  const handleClick = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false); // ferme la modale
+    }
+  };
+  const menuItems = ['portfolio', 'aboutMe', 'contact'];
   return (
     <>
       <div className='transition-transform duration-300 hover:scale-110 cursor-pointer' title='Click' onClick={() => setIsOpen(true)}>
@@ -21,8 +27,9 @@ export default function Menu() {
       </div>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <h2 className='text-3xl font-bold mb-4'>Menu</h2>
-        <p>Contenu de la modale ici</p>
+        {menuItems.map((key) => (
+          <MenuItem translationKey={key} onClick={() => handleClick(key)} key={key} />
+        ))}{' '}
       </Modal>
     </>
   );

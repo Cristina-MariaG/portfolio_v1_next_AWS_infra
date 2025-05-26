@@ -24,16 +24,16 @@ export default function Footer({ timerValue }: { timerValue: number }) {
         <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
       </div>
 
-      <div className='w-[20%] flex items-center justify-center cursor-pointer' onClick={() => scrollToSection('portfolio')}>
+      <div className='w-[20%] flex items-center justify-center cursor-pointer hover-bounce' onClick={() => scrollToSection('portfolio')}>
         <p className='flex items-center gap-2 flash'>
           Scroll down <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
         </p>
       </div>
       <div className='w-[60%] flex items-center justify-end cursor-pointer'>
-        <p className='pr-10' onClick={() => scrollToSection('portfolio')}>
+        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('portfolio')}>
           Portfolio
         </p>
-        <p className='pr-10' onClick={() => scrollToSection('aboutMe')}>
+        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('aboutMe')}>
           About Me
         </p>
       </div>
