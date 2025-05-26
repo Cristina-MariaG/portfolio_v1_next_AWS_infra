@@ -30,11 +30,11 @@ export default function Footer({ timerValue }: { timerValue: number }) {
         </p>
       </div>
       <div className='w-[60%] flex items-center justify-end cursor-pointer'>
-        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('portfolio')}>
-          Portfolio
-        </p>
         <p className='pr-10 hover-bounce' onClick={() => scrollToSection('aboutMe')}>
           About Me
+        </p>
+        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('portfolio')}>
+          Portfolio
         </p>
       </div>
     </div>

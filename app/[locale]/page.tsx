@@ -7,8 +7,8 @@ export default async function Home() {
   return (
     <main>
       <LandingPage />
-      <PortfolioPage />
       <AboutMe />
+      <PortfolioPage />
       <Contact />
     </main>
   );
