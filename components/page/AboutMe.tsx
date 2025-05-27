@@ -16,7 +16,7 @@ export default function AboutMe() {
         <p className='text-xl font-medium '>Profil</p>
       </div>
       <div className='w-[10%]  flex justify-center items-center'>
-        <p className='text-3xl font-bold'>About</p>
+        <p className='text-3xl font-bold'>{t('aboutMe')}</p>
       </div>
 
       <div className='w-[75%]'>

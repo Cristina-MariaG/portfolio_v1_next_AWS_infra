@@ -6,4 +6,8 @@ export default {
   portfolio: 'Portfolio',
   aboutMe: 'About',
   contact: 'Contact',
+  ecodb: {
+    title: 'EcoDb, maquette et application',
+    description: 'EcoDb, maquette et application',
+  },
 } as const;
