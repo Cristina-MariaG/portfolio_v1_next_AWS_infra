@@ -4,7 +4,7 @@ import Header from '@/components/common/Header';
 import Section from '@/components/page/Section';
 import Footer from '@/components/common/Footer';
 
-export default function LandingPage() {
+export default function HomePage() {
   return (
     <div className='flex flex-col h-screen overflow-hidden dark:bg-black bg-[#F2F1EA]'>
       <div className='h-[15%]'>

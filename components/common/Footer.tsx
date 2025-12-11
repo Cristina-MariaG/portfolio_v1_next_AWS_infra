@@ -20,11 +20,11 @@ export default function Footer({ timerValue }: { timerValue: number }) {
   };
   return (
     <div className={`flex transform transition-all duration-700 ease-in-out ${visible ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'}`}>
-      <div className='w-[20%] flex items-center justify-center cursor-pointer flash' onClick={() => scrollToSection('portfolio')}>
+      {/* <div className='w-[20%] flex items-center justify-center cursor-pointer flash' onClick={() => scrollToSection('aboutMe')}>
         <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
-      </div>
+      </div> */}
 
-      <div className='w-[20%] flex items-center justify-center cursor-pointer hover-bounce' onClick={() => scrollToSection('portfolio')}>
+      <div className='w-[40%] flex items-center justify-center cursor-pointer hover-bounce' onClick={() => scrollToSection('aboutMe')}>
         <p className='flex items-center gap-2 flash'>
           Scroll down <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
         </p>

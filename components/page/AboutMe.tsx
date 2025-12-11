@@ -11,26 +11,19 @@ export default function AboutMe() {
   const changeLocale = useChangeLocale();
 
   return (
-    <div id='aboutMe' style={{ backgroundColor: 'var(--background-light)' }} className=' flex'>
+    // <div id='aboutMe' style={{ backgroundColor: 'var(--background-light)' }} className=' flex'>
+    <div id='aboutMe' className='min-h-screen bg-light flex dark:bg-grey text-black dark:text-light md:flex-row'>
       <div className='w-[10%] pt-10 ps-5 flex justify-start'>
-        <p className='text-xl font-medium '>Profil</p>
+        <p className='text-4xl font-medium '>Profil</p>
       </div>
-      <div className='w-[10%]  flex justify-center items-center'>
-        <p className='text-3xl font-bold'>{t('aboutMe')}</p>
+      <div className='w-[15%]  flex flex-col justify-center items-center'>
+        <p className='text-5xl font-bold'>{t('aboutMe')}</p>
+        <Image src='/cris.png' alt='Portrait' width={300} height={300} className='rounded-full shadow-lg h-auto mt-10' />;
       </div>
 
-      <div className='w-[75%]'>
-        {/* <div className='w-20 h-full bg-gray-200'></div> */}
-        <div className='flex flex-col items-center'>
-          <Image
-            src='/cris.png' // remplace par le chemin réel
-            alt='Portrait'
-            width={300}
-            height={300}
-            className='rounded-full shadow-lg'
-          />
-          ;
-          <p className='text-lg leading-relaxed text-gray-700 dark:text-gray-300'>
+      <div className='w-[75%] flex flex-col justify-center items-center'>
+        <div className='w-[75%]  flex flex-col items-center'>
+          <p className='text-lg leading-relaxed'>
             Je suis née et j’ai grandi en Roumanie, où j’ai terminé mes études en Mathematique-Informatique. Durant cette période, j’ai affiné mes
             compétences analytiques et développé un fort intérêt pour la technologie — que ce soit pour automatiser des tâches simples ou créer des
             scripts afin de résoudre des problèmes du quotidien.

@@ -1,4 +1,4 @@
-import LandingPage from '@/components/page/LandingPage';
+import HomePage from '@/components/page/HomePage';
 import PortfolioPage from '@/components/page/PortfolioPage';
 import AboutMe from '@/components/page/AboutMe';
 import Contact from '@/components/page/Contact';
@@ -6,7 +6,7 @@ import Contact from '@/components/page/Contact';
 export default async function Home() {
   return (
     <main>
-      <LandingPage />
+      <HomePage />
       <AboutMe />
       <PortfolioPage />
       <Contact />

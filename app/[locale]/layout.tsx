@@ -1,10 +1,7 @@
-// app/[locale]/layout.tsx
-
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ReactElement } from 'react';
 import { I18nProviderClient } from '../../locales/client';
-
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
@@ -24,6 +21,9 @@ export default async function RootLayout({ params, children }: { params: Promise
 
   return (
     <html lang='fr'>
+      <head>
+        <link rel='icon' href='data:,' />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black
       dark:bg-black dark:text-white`}
