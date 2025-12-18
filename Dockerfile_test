@@ -1,0 +1,16 @@
+FROM node:24-alpine3.20
+# Define the build argument for the backend API URL
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy all the files from the current directory to the working directory inside the container
+COPY . .
+
+# Clean the yarn cache, install dependencies, and build the application
+RUN yarn cache clean && yarn install && yarn build
+
+# Expose port 3000 to the host machine
+EXPOSE 3000
+
+# Command to run the application
+CMD ["yarn", "start"]
