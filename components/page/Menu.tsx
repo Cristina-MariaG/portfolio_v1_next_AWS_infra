@@ -2,15 +2,12 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { useChangeLocale, useCurrentLocale, useI18n } from '@/locales/client';
 import { useState } from 'react';
 import Modal from './Modal';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import MenuItem from './MenuItem';
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
-  const t = useI18n();
 
   const handleClick = (sectionId: string) => {
     const el = document.getElementById(sectionId);

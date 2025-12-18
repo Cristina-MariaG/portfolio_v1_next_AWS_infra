@@ -14,7 +14,7 @@ export default function Footer({ timerValue }: { timerValue: number }) {
       setVisible(true);
     }, timerValue);
     return () => clearTimeout(timer);
-  }, []);
+  });
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

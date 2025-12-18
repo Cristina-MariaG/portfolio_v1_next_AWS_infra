@@ -15,4 +15,6 @@ COPY . .
 EXPOSE 3000
 
 # Commande pour lancer le serveur de développement lorsque le conteneur démarre
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
+# Commande par défaut pour le container
+CMD ["npm", "run", "dev:strict"]

@@ -14,7 +14,7 @@ export default function Header({ timerValue }: { timerValue: number }) {
       setVisible(true);
     }, timerValue);
     return () => clearTimeout(timer);
-  }, []);
+  });
 
   return (
     <div className={`flex transform transition-all duration-700 ease-in-out ${visible ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'}`}>

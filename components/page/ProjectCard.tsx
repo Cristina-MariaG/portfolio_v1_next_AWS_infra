@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { useI18n } from '@/locales/client';
 
 type ProjectCardProps = {
   title: string;
@@ -29,7 +28,6 @@ export default function ProjectCard({
   alignProjectCard = 'left',
   mobile = false,
 }: ProjectCardProps) {
-  const t = useI18n();
   const isDark = variant === 'dark';
   const isWhite = variant === 'light';
 

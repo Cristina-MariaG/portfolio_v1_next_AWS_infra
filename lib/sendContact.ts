@@ -48,8 +48,8 @@ export async function sendContactEmail(payload: ContactPayload) {
   try {
     await transporter.verify();
     console.log('✓ SMTP connection verified');
-  } catch (err) {
-    throw new Error(`SMTP connection/credentials problem: ${(err as any).message || String(err)}`);
+  } catch (err: unknown) {
+    throw new Error(`SMTP connection/credentials problem: ${err instanceof Error ? err.message : String(err)}`);
   }
 
   // Many SMTP providers reject messages where 'from' is an arbitrary address.

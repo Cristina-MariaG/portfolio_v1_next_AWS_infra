@@ -12,7 +12,7 @@ export default function Section({ timerValue }: { timerValue: number }) {
       setVisible(true);
     }, timerValue);
     return () => clearTimeout(timer);
-  }, []);
+  });
 
   return (
     <div

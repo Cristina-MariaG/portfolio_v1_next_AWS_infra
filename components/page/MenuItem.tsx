@@ -16,7 +16,7 @@ export default function MenuItem({ translationKey, onClick }: MenuItemProps) {
         <span className='mr-2 inline-block transform -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300'>
           <FontAwesomeIcon icon={faArrowRight} />
         </span>
-        {/*  @ts-ignore */}
+        {/* @ts-expect-error dnsfsd fdsf fdfs */} 
         <span className='inline-block transform group-hover:translate-x-2 transition-all duration-300'>{t(`${translationKey}`)}</span>
       </span>
     </p>

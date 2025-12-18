@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "WATCHPACK_POLLING=true next dev",
+    "dev:strict": "WATCHPACK_POLLING=true concurrently \"next dev\" \"npx eslint . --ext .js,.ts,.tsx --max-warnings=0 --watch\" \"npx tsc --noEmit --watch\"",
+    "dev:strict-local": "concurrently \"next dev\" \"npx eslint . --ext .js,.ts,.tsx --max-warnings=0 --watch\" \"npx tsc --noEmit --watch\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -27,6 +29,7 @@
     "@types/nodemailer": "^7.0.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
     "postcss": "^8",
