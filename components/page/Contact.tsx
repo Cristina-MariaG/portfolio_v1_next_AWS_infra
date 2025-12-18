@@ -3,14 +3,17 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { useI18n } from '@/locales/client';
+
 const Contact = () => {
+  const t = useI18n();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  // zszjdwkahbtxctws
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -41,19 +44,12 @@ const Contact = () => {
 
   return (
     <div id='contact' className='min-h-screen flex flex-col md:flex-row'>
-      <div className='md:w-1/4 flex items-center justify-center bg-gray-100 dark:bg-gray-900'>
-        <h1 className='text-[clamp(1.5rem,4vw,2.5rem)] font-bold rotate-0 md:rotate-0'>Contact</h1>
+      <div className='md:w-1/4 flex items-center justify-center bg-gray-100 bg-light dark:bg-grey'>
+        <h1 className='text-[clamp(1.5rem,4vw,2.5rem)] font-bold rotate-0 md:rotate-0'>{t('contactPage.title')}</h1>
       </div>
 
-      <div className='flex flex-col justify-center flex-1 gap-5'>
-        {/* <div className='md:w-3/4 p-8 flex flex-col justify-center  gap-8 border-black'> */}
-        <p className='text-base md:text-lg w-full md:w-3/4 self-center mb-4'>
-          Send me a message using the form below :
-          {/* 📧 Email :{' '}
-          <a href='mailto:tonemail@example.com' className='text-blue-600 hover:underline'>
-            tonemail@example.com
-          </a> */}
-        </p>
+      <div className='flex flex-col md:justify-center flex-1 gap-5 pt-5 dark:bg-grey'>
+        <p className='text-base md:text-lg w-full md:w-3/4 self-center mb-4'>{t('contactPage.sendMessage')}</p>
         <div className='w-full md:w-3/4 p-4 self-center'>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full'>
             <input
@@ -62,7 +58,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder='Votre nom'
-              className='w-full text-lg pb-2 border-b border-gray-300 dark:border-neutral-600 focus:border-blue-500 focus:outline-none'
+              className='w-full text-lg pb-2 border-b text-black border-gray-300 dark:border-neutral-600 focus:border-blue-500 focus:outline-none'
               required
             />
             <input
@@ -71,7 +67,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder='Votre email'
-              className='w-full text-lg pb-2 border-b border-gray-300 dark:border-neutral-600 focus:border-blue-500 focus:outline-none'
+              className='w-full text-lg pb-2 border-b border-gray-300 dark:border-neutral-600 focus:border-blue-500 focus:outline-none text-black'
               required
             />
             <textarea
@@ -79,22 +75,24 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder='Votre message'
-              className='w-full text-lg pb-2 border-b border-gray-300 dark:border-neutral-600 focus:border-blue-500 focus:outline-none'
+              className='w-full text-lg pb-2 text-black border-b border-gray-300 dark:border-neutral-600 focus:border-blue-500 focus:outline-none'
               required
             />
             <button type='submit' className='px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition'>
-              Envoyer
+              {t('contactPage.sendButton')}
             </button>
           </form>
         </div>
 
-        {/* Autres infos */}
         <p className='text-gray-500 self-center'>
-          Vous pouvez également me retrouver sur{' '}
-          <a href='https://www.linkedin.com/in/tonprofil' target='_blank' rel='noopener noreferrer' className='text-blue-600 hover:underline'>
-            LinkedIn
+          <a
+            href='https://www.linkedin.com/in/cristina-maria-1a073b20b/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-blue-600 hover:underline'
+          >
+            {t('contactPage.findMeOn')}
           </a>
-          .
         </p>
         <p className='self-center'>
           <a
@@ -103,7 +101,8 @@ const Contact = () => {
             className='inline-flex items-center gap-2 px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition'
           >
             <FontAwesomeIcon icon={faDownload} className='fa-2xl fa-solid' />
-            Download my CV
+
+            {t('contactPage.dwnloadCV')}
           </a>
         </p>
       </div>

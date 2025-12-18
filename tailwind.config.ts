@@ -16,6 +16,7 @@ export default {
         'light': 'var(--light)',
         'black': 'var(--black)',
         'grey': 'var(--grey)',
+        'whiteColor': 'var(--whiteColor)',
       },
     },
   },

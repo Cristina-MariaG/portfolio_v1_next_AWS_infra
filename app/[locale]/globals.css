@@ -5,14 +5,16 @@
 :root {
   --home: #f2f1ea;
   --light: #fefffd;
+  --whiteColor: #ffffff;
   --black: #121413;
-  --grey: #363636;
+  --grey: #344955;
+  --text: #757575;
 }
 
 body {
   /* color: var(--foreground);*/
   background: #f2f1ea;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Geist, Arial, Helvetica, sans-serif;
 }
 
 .flash {
@@ -35,46 +37,6 @@ body {
     transform: translateY(15px);
   }
 }
-
-/* @keyframes moveAround {
-  0% {
-    transform: translate(0, 0);
-  }
-  10% {
-    transform: translate(45px, -20px);
-  }
-  20% {
-    transform: translate(-50px, -45px);
-  }
-  30% {
-    transform: translate(65px, 25px);
-  }
-  40% {
-    transform: translate(-40px, 40px);
-  }
-  50% {
-    transform: translate(0, -40px);
-  }
-  60% {
-    transform: translate(-50px, 0);
-  }
-  70% {
-    transform: translate(25px, 25px);
-  }
-  80% {
-    transform: translate(-75px, 75px);
-  }
-  90% {
-    transform: translate(15px, -15px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-} */
-
-/* .move-around {
-  animation: moveAround 10s ease-in-out infinite;
-} */
 
 /* Conteneur : simple cercle vide */
 .circle-container {

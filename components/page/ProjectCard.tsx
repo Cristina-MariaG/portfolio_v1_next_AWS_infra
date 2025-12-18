@@ -1,61 +1,56 @@
 import React from 'react';
 import Image from 'next/image';
+import { useI18n } from '@/locales/client';
 
 type ProjectCardProps = {
   title: string;
-  description: string;
+  subtitle?: string;
+  description: string[];
   technologies?: string[];
   imageSrc?: string;
   imageAlt?: string;
-  demoUrl?: string;
-  repoUrl?: string;
-  year?: string | number;
-  role?: string;
+  year?: string;
   /** visual variant: 'light' (default), 'dark' (black card), or 'blank' (transparent/minimal) */
-  variant?: 'light' | 'dark' | 'blank';
+  variant?: 'light' | 'dark';
   /** image on 'left' (default) or 'right' */
-  alignImage?: 'left' | 'right';
   alignProjectCard?: 'left' | 'right';
+  mobile?: true | false;
 };
 
 export default function ProjectCard({
   title,
-  description,
+  subtitle,
+  description = [],
   technologies = [],
   imageSrc,
   imageAlt,
-  demoUrl,
-  repoUrl,
   year,
-  role,
   variant = 'light',
-  alignImage = 'left',
   alignProjectCard = 'left',
+  mobile = false,
 }: ProjectCardProps) {
+  const t = useI18n();
   const isDark = variant === 'dark';
-  const isBlank = variant === 'blank';
+  const isWhite = variant === 'light';
 
-  const containerBase = 'w-full max-w-3xl rounded-xl overflow-hidden backdrop-blur-sm shadow-sm';
-  const containerVariant = isBlank
-    ? 'bg-transparent border-0'
-    : isDark
-    ? 'border border-neutral-800 bg-neutral-900'
-    : 'border border-gray-200 bg-white/80 dark:bg-neutral-900/60';
+  const containerBase = 'w-full md:max-w-3xl rounded-xl overflow-hidden backdrop-blur-sm shadow-sm';
+  const containerVariant = isWhite ? ' border border-2 bg-whiteColor' : 'border border-gray-200 bg-grey';
 
-  const textColor = isBlank ? 'text-neutral-900 dark:text-neutral-100' : isDark ? 'text-white' : 'text-neutral-900 dark:text-neutral-100';
+  const textColor = isWhite ? 'text-neutral-900' : isDark ? 'text-white' : 'text-neutral-900 dark:text-neutral-100';
 
-  const flexDirection = alignImage === 'right' ? 'md:flex md:flex-row-reverse' : 'md:flex';
+  const flexDirection = 'md:flex md:flex-col';
+
   const alignProject = alignProjectCard === 'right' ? '' : '';
   return (
-    <article className={`${containerBase} ${containerVariant} ${alignProject} `}>
-      <div className={flexDirection}>
-        <div
-          className={`relative w-full h-48 md:h-auto md:w-48 flex-shrink-0 ${
-            isDark ? 'bg-gradient-to-br from-neutral-800 to-neutral-900' : 'bg-gradient-to-br from-slate-100 to-slate-50'
-          }`}
-        >
+    <article className={`${containerBase} ${containerVariant} ${alignProject}`}>
+      <div className={`${flexDirection} items-center`}>
+        <div className={`relative mx-auto`}>
           {imageSrc ? (
-            <Image src={imageSrc} alt={imageAlt ?? title} fill sizes='(max-width: 768px) 100vw, 192px' className='object-cover' />
+            mobile ? (
+              <Image src={imageSrc} alt={imageAlt ?? title} width={150} height={300} className='object-contain' />
+            ) : (
+              <Image src={imageSrc} alt={imageAlt ?? title} width={750} height={450} className='  p-3 max-w-full h-auto object-contain' />
+            )
           ) : (
             <div className='flex items-center justify-center h-full px-4'>
               <span className='text-sm text-neutral-500 dark:text-neutral-400'>No image</span>
@@ -63,17 +58,32 @@ export default function ProjectCard({
           )}
         </div>
 
-        <div className={`p-4 md:p-6 flex-1 ${textColor}`}>
+        <div className={`p-4 md:p-6 flex-1 text-left ${textColor}`}>
           <header className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2'>
             <div>
-              <h3 className='text-lg font-semibold leading-snug text-neutral-900 dark:text-neutral-100'>{title}</h3>
+              <h3 className='text-lg font-semibold leading-snug'>{title}</h3>
+              <h3 className='text-base font-semibold leading-snug'>{subtitle}</h3>
               <div className='text-xs text-neutral-500 dark:text-neutral-400 mt-1'>
-                {role && <span className='mr-2'>{role}</span>}
+                {/* {role && <span className='mr-2'>{role}</span>} */}
                 {year && <span className=''>• {year}</span>}
               </div>
+              {technologies.length > 0 && (
+                <div className='mt-4 flex flex-wrap gap-2'>
+                  {technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className={`text-xs px-2 py-1 rounded-md ${
+                        isDark ? 'bg-neutral-800 text-neutral-200' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300'
+                      }`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
-            <div className='flex gap-2 items-center'>
+            {/*   <div className='flex gap-2 items-center'>
               {demoUrl && (
                 <a
                   href={demoUrl}
@@ -95,29 +105,18 @@ export default function ProjectCard({
                   Code
                 </a>
               )}
-            </div>
+            </div>*/}
           </header>
 
-          <p className='mt-3 text-sm'>{description}</p>
+          {/* <p className='mt-3 text-sm'>{description}</p>
+           */}
+          <ul className={`p-4 md:p-6 flex-1 text-left ${textColor} list-disc list-inside space-y-1`}>
+            {description.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
 
-          {technologies.length > 0 && (
-            <div className='mt-4 flex flex-wrap gap-2'>
-              {technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className={`text-xs px-2 py-1 rounded-md ${
-                    isDark ? 'bg-neutral-800 text-neutral-200' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300'
-                  }`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          )}
-
-          <footer className={`mt-4 text-xs ${isDark ? 'text-neutral-300' : 'text-neutral-500 dark:text-neutral-400'}`}>
-            - A clean, accessible snapshot to show on a portfolio: short description, tech stack, and quick links to live/demo and source.
-          </footer>
+          {/* <footer className={`mt-4 text-xs ${isDark ? 'text-neutral-300' : 'text-neutral-500 dark:text-neutral-400'}`}></footer> */}
         </div>
       </div>
     </article>

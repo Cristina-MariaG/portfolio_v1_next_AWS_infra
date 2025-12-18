@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { useI18n } from '@/locales/client';
 
 export default function Footer({ timerValue }: { timerValue: number }) {
   const [visible, setVisible] = useState(false);
+  const t = useI18n();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,21 +22,20 @@ export default function Footer({ timerValue }: { timerValue: number }) {
   };
   return (
     <div className={`flex transform transition-all duration-700 ease-in-out ${visible ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'}`}>
-      {/* <div className='w-[20%] flex items-center justify-center cursor-pointer flash' onClick={() => scrollToSection('aboutMe')}>
-        <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
-      </div> */}
-
       <div className='w-[40%] flex items-center justify-center cursor-pointer hover-bounce' onClick={() => scrollToSection('aboutMe')}>
         <p className='flex items-center gap-2 flash'>
-          Scroll down <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
+          {t('scrollDown')} <FontAwesomeIcon icon={faArrowDown} className='fa-2xl fa-solid' />
         </p>
       </div>
       <div className='w-[60%] flex items-center justify-end cursor-pointer'>
         <p className='pr-10 hover-bounce' onClick={() => scrollToSection('aboutMe')}>
-          About Me
+          {t('aboutMe')}
         </p>
-        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('portfolio')}>
-          Portfolio
+        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('portfolio.title')}>
+          {t('portfolio.title')}
+        </p>
+        <p className='pr-10 hover-bounce' onClick={() => scrollToSection('contact')}>
+          {t('contact')}
         </p>
       </div>
     </div>

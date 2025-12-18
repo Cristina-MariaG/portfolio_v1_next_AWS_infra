@@ -19,7 +19,7 @@ export default function Menu() {
       setIsOpen(false); // ferme la modale
     }
   };
-  const menuItems = ['portfolio', 'aboutMe', 'contact'];
+  const menuItems = ['portfolio.title', 'aboutMe', 'contact'];
   return (
     <>
       <div className='transition-transform duration-300 hover:scale-110 cursor-pointer' title='Click' onClick={() => setIsOpen(true)}>

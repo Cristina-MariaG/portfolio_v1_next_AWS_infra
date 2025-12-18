@@ -1,11 +1,10 @@
 'use client';
 
-import { useChangeLocale, useCurrentLocale, useI18n } from '@/locales/client';
+import { useChangeLocale, useCurrentLocale } from '@/locales/client';
 import { faEarthAmerica } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function LanguageSelector() {
-  const t = useI18n();
   const locale = useCurrentLocale();
   const changeLocale = useChangeLocale();
 
