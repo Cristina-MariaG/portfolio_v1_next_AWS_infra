@@ -7,7 +7,7 @@ build_publish_image_pre_prod:
     - docker:26.0.2-dind
   script:
     - docker login -u $USERNAME_DOCKERHUB -p $PASSWORD_DOCKERHUB
-    - docker build -t $USERNAME_DOCKERHUB/$PROJECT_NAME_DOCKERHUB --build-arg NEXT_PUBLIC_BACKEND_API=$NEXT_PUBLIC_BACKEND -f Dockerfile_test.
+    - docker build -t $USERNAME_DOCKERHUB/$PROJECT_NAME_DOCKERHUB -f Dockerfile_test.
     - docker push $USERNAME_DOCKERHUB/$PROJECT_NAME_DOCKERHUB
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
