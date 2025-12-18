@@ -6,7 +6,7 @@ build_publish_image_pre_prod:
   services:
     - docker:26.0.2-dind
   script:
-    - docker login -u $USERNAME_DOCKERHUB -p $PASSWORD_DOCKERHUB
+    - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
     - docker build -t $USERNAME_DOCKERHUB/$PROJECT_NAME_DOCKERHUB -f Dockerfile_test.
     - docker push $USERNAME_DOCKERHUB/$PROJECT_NAME_DOCKERHUB
   rules:
