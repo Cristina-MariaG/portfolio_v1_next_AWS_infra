@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Clean the yarn cache, install dependencies, and build the application
-RUN yarn cache clean && yarn install && yarn build
+RUN npm install && npm build
 
 # Expose port 3000 to the host machine
 EXPOSE 3000
