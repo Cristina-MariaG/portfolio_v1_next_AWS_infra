@@ -18,11 +18,11 @@ update_docker_image:
     - apt-get update
     - apt-get install -y openssh-client
     - mkdir -p ~/.ssh
-    - echo "$KEY_SSH" > ~/.ssh/temp_ssh_key.pem
+    - echo -e "$KEY_SSH" > ~/.ssh/temp_ssh_key
     - echo $KEY_SSH
-    - chmod 600 ~/.ssh/temp_ssh_key.pem
+    - chmod 600 ~/.ssh/temp_ssh_key
   script:
-    - ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/temp_ssh_key.pem admin@$PUBLIC_IP_EC2_INSTANCE "
+    - ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/temp_ssh_key admin@$PUBLIC_IP_EC2_INSTANCE "
       export SMTP_HOST='$SMTP_HOST';
       echo 'SMTP_HOST=$SMTP_HOST;
       export SMTP_USER='$SMTP_USER';
