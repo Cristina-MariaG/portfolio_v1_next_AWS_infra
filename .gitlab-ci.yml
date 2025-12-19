@@ -11,7 +11,6 @@ build_publish_image_pre_prod:
     - docker push $DOCKERHUB_USERNAME/$PROJECT_NAME_DOCKERHUB
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
-
 update_docker_image_pre_prod:
   stage: deploy
   image: debian:stable
@@ -33,9 +32,9 @@ update_docker_image_pre_prod:
       "
     - rm ~/.ssh/temp_ssh_key.pem
   dependencies:
-    - build_publish_image
+    - build_publish_image_pre_prod
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "test"'
 # update_docker_image_pre_prod:
 #   stage: deploy
 #   image: debian:stable
