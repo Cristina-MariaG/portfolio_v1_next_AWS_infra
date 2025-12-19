@@ -12,7 +12,7 @@ import type { Transporter } from 'nodemailer';
 
 declare module 'nodemailer' {
   const nodemailer: {
-    // @ts-expect-error transporter type issue
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     createTransport(options: any): Transporter<any>;
     // d’autres propriétés/options peuvent être ajoutées ici
   };
