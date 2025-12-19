@@ -50,3 +50,6 @@ ssh -i myfirstvps.pem <utilisateur>@<adresse_IP>
 
 debian
  ssh -i ./cris_portfolio.pem admin@15.237.53.234
+
+ 
+npx eslint . --ext .js,.ts,.tsx --max-warnings=0
