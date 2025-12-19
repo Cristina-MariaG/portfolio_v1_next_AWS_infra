@@ -3,6 +3,7 @@
 import Header from '@/components/common/Header';
 import Section from '@/components/page/Section';
 import Footer from '@/components/common/Footer';
+import { useI18n } from '@/locales/client';
 
 export default function HomePage() {
   return (

@@ -1,0 +1,9 @@
+data
+console_libraries
+prometheus
+promtool
+.terraform.lock.hcl
+.terraform
+.ssh/
+.env
+.env.local

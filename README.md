@@ -37,3 +37,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 docker push miksiei2024/cris_portfolio:tagname
+
+docker compose -f docker-compose-test.yml up -d
+
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs-general.html#connection-prereqs-get-info-about-instance
+
+
+ping 
+
+ssh -i myfirstvps.pem <utilisateur>@<adresse_IP>
+
+debian
+ ssh -i ./cris_portfolio.pem admin@15.237.53.234

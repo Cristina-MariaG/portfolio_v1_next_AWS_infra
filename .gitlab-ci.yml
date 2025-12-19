@@ -11,6 +11,31 @@ build_publish_image_pre_prod:
     - docker push $DOCKERHUB_USERNAME/$PROJECT_NAME_DOCKERHUB
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
+
+update_docker_image_pre_prod:
+  stage: deploy
+  image: debian:stable
+  before_script:
+    - apt-get update
+    - apt-get install -y openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$KEY_SSH" > ~/.ssh/temp_ssh_key.pem
+    - chmod 600 ~/.ssh/temp_ssh_key.pem
+  script:
+    - ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/temp_ssh_key.pem admin@$PUBLIC_IP_EC2_INSTANCE "
+      export SMTP_HOST='$SMTP_HOST';
+      export SMTP_USER='$SMTP_USER';
+      export SMTP_PASS='$SMTP_PASS';
+      export CONTACT_TO='$CONTACT_TO';
+      cd ~/docker_project_directory &&
+      docker compose pull &&
+      docker compose up -d
+      "
+    - rm ~/.ssh/temp_ssh_key.pem
+  dependencies:
+    - build_publish_image
+  rules:
+    - if: \"$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'\"
 # update_docker_image_pre_prod:
 #   stage: deploy
 #   image: debian:stable
@@ -18,16 +43,15 @@ build_publish_image_pre_prod:
 #     - apt-get update
 #     - apt-get install -y openssh-client
 #     - mkdir -p ~/.ssh
-#     - echo "$MIKSIEI_KEY_SSH_FINAL_PROJECT" > ~/.ssh/temp_ssh_key
-#     - chmod 600 ~/.ssh/temp_ssh_key
+#     - echo "$MIKSIEI_KEY_SSH_FINAL_PROJECT" > ~/.ssh/temp_ssh_key.pem
+#     - chmod 600 ~/.ssh/temp_ssh_key.pem
 #   script:
-#     - ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/temp_ssh_key admin@$PUBLIC_IP_EC2_INSTANCE "docker compose pull && docker compose up -d"
-#     - rm ~/.ssh/temp_ssh_key
+#     - ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/temp_ssh_key.pem admin@$PUBLIC_IP_EC2_INSTANCE "docker compose pull && docker compose up -d"
+#     - rm ~/.ssh/temp_ssh_key.pem
 #   dependencies:
 #     - build_publish_image
 #   rules:
-#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-prod'"
-
+#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
 # variables:
 #   SONAR_USER_HOME: '${CI_PROJECT_DIR}/.sonar'
 #   GIT_DEPTH: '0'
