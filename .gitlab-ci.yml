@@ -34,10 +34,10 @@ update_docker_image:
       docker compose up -d
       "
     - rm ~/.ssh/temp_ssh_key.pem
-  dependencies:
-    - build_publish_image
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "test"'
+# dependencies:
+#   - build_publish_image
 # update_docker_image_pre_prod:
 #   stage: deploy
 #   image: debian:stable
