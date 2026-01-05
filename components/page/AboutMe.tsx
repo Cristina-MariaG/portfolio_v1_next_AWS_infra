@@ -14,7 +14,7 @@ export default function AboutMe() {
       </div>
 
       <div className='md:w-3/4 flex  flex-col justify-center items-center'>
-        <div className='md:w-3/4 md:text-lg  text-base leading-relaxed text-black dark:text-white '>
+        <div className='p-4 md:p-0 md:w-3/4 md:text-lg  text-base leading-relaxed text-black dark:text-white '>
           <p>{t('about.paragraph1')}</p>
           <br />
           <p>{t('about.paragraph2')}</p>

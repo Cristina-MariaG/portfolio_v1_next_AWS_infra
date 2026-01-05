@@ -49,7 +49,14 @@ ping
 ssh -i myfirstvps.pem <utilisateur>@<adresse_IP>
 
 debian
- ssh -i ./cris_portfolio.pem admin@15.237.53.234
+ ssh -i ./cris_portfolio.pem admin@35.180.65.154
 
- 
 npx eslint . --ext .js,.ts,.tsx --max-warnings=0
+
+
+docker exec -it <nom_du_conteneur> env
+
+docker compose exec <service_docker_compose_name> env | grep SMTP
+
+
+![alt text](image.png)

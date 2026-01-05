@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <div id='contact' className='min-h-screen flex flex-col md:flex-row'>
+    <div id='contact' className='min-h-screen flex flex-col md:flex-row p-4 md:p-0 '>
       <div className='md:w-1/4 flex items-center justify-center bg-gray-100 bg-light dark:bg-grey'>
         <h1 className='text-[clamp(1.5rem,4vw,2.5rem)] font-bold rotate-0 md:rotate-0'>{t('contactPage.title')}</h1>
       </div>

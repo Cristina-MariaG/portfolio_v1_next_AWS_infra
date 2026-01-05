@@ -1,16 +1,17 @@
 image: node:24
 
-# build_publish_image:
-#   stage: build
-#   image: docker:26.0.2
-#   services:
-#     - docker:26.0.2-dind
-#   script:
-#     - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-#     - docker build -t $DOCKERHUB_USERNAME/$PROJECT_NAME_DOCKERHUB -f Dockerfile_test .
-#     - docker push $DOCKERHUB_USERNAME/$PROJECT_NAME_DOCKERHUB
-#   rules:
-#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
+build_publish_image:
+  stage: build
+  image: docker:26.0.2
+  services:
+    - docker:26.0.2-dind
+  script:
+    - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+    - docker build -t $DOCKERHUB_USERNAME/$PROJECT_NAME_DOCKERHUB -f Dockerfile_test .
+    - docker push $DOCKERHUB_USERNAME/$PROJECT_NAME_DOCKERHUB
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'test'"
+
 update_docker_image:
   stage: deploy
   image: debian:stable
@@ -34,8 +35,8 @@ update_docker_image:
     - rm ~/.ssh/temp_ssh_key.pem
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "test"'
-# dependencies:
-#   - build_publish_image
+  dependencies:
+    - build_publish_image
 # update_docker_image_pre_prod:
 #   stage: deploy
 #   image: debian:stable

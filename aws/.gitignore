@@ -4,6 +4,6 @@ prometheus
 promtool
 .terraform.lock.hcl
 .terraform
-.ssh/
+.ssh/cris_portfolio.pem
 .env
 .env.local
