@@ -60,3 +60,10 @@ docker compose exec <service_docker_compose_name> env | grep SMTP
 
 
 ![alt text](image.png)
+
+
+netoyage docker after changing dockerfile :
+docker compose down
+docker system prune -af
+docker compose build --no-cache
+docker compose up -d

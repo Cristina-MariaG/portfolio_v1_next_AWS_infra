@@ -5,6 +5,11 @@ services:
       - '80:80'
       - '443:443'
     restart: always
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
     volumes:
       - ./nginx/conf/:/etc/nginx/conf.d/:ro
       - ./certbot/www/:/var/www/certbot/:ro
@@ -12,6 +17,11 @@ services:
 
   certbot:
     image: certbot/certbot:latest
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
@@ -20,6 +30,11 @@ services:
     image: miksiei2024/cris_portfolio:latest
     container_name: cris_portfolio_container
     restart: always
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
     ports:
       - '3000:3000'
     environment:
