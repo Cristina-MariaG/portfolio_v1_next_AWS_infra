@@ -20,9 +20,9 @@ export default function LanguageSelector() {
           onChange={(e) => changeLocale((e.target.value as 'fr') || 'en' || 'ro')}
           className='bg-transparent text-black dark:text-white border-none outline-none font-medium text-sm'
         >
-          <option value='fr'>🇫🇷</option>
-          <option value='en'>🇬🇧</option>
-          <option value='ro'>🇷🇴</option>
+          <option value='fr'>🇫🇷 Fr</option>
+          <option value='en'>🇬🇧 En</option>
+          <option value='ro'>🇷🇴 Ro</option>
         </select>
       </div>
     </div>

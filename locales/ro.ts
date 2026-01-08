@@ -38,12 +38,12 @@ export default {
 
   portfolio: {
     title: 'Portofoliu',
-    introTitle:
-      'De-a lungul timpului, am participat la numeroase proiecte, atât academice, cât și profesionale. Această selecție prezintă proiecte complexe pe care le-am conceput, dezvoltat și livrat independent, de la început până la final.',
+    introTitle: 'De-a lungul timpului, am lucrat la numeroase proiecte, atât academice, cât și profesionale.',
+    introDescription0:
+      'Mai jos prezint o selecție de proiecte din zona de dezvoltare web și DevOps, concepute, dezvoltate și livrate independent, care reflectă stăpânirea tehnologiilor utilizate și competențele dobândite în gestionarea provocărilor fiecărui proiect, dar există și alte proiecte, realizate individual sau în colaborare, care nu sunt incluse în această selecție.',
     introDescription1:
-      'Există și alte proiecte, realizate individual sau în colaborare, care nu sunt prezentate aici. Dacă dorești mai multe detalii, nu ezita să mă contactezi; există o pagină dedicată puțin mai jos.',
-    introDescription2:
-      'Aici vei găsi o prezentare generală a proiectelor, incluzând atât dezvoltare web, cât și un proiect DevOps. Acestea demonstrează stăpânirea tehnologiilor utilizate și competențele dezvoltate în fața provocărilor fiecărui proiect.',
+      'Un exemplu este acest site, care ilustrează modul meu de lucru end-to-end, fiind conceput, dezvoltat și pus în producție integral de mine. Proiectul îmbină dezvoltarea web cu practici DevOps moderne, precum Next.js și Tailwind CSS, containerizarea și deploy-ul cu Docker, implementarea unei pipeline CI/CD în GitLab cu scripturi de automatizare, Infrastructure as Code folosind Terraform și Ansible, precum și găzduirea și deployment-ul în cloud pe AWS. ',
+    introDescription2: 'Dacă dorești mai multe detalii, nu ezita să mă contactezi; există o pagină dedicată puțin mai jos.',
   },
 
   ecodb: {
@@ -114,9 +114,10 @@ export default {
 
   contactPage: {
     title: 'Contactează-mă',
+    forMoreInfos: 'Pentru informații suplimentare și datele mele de contact, descarcă CV-ul meu ',
     sendMessage: 'Trimite-mi un mesaj folosind formularul de mai jos:',
-    findMeOn: 'Mă poți găsi și pe LinkedIn',
-    dwnloadCV: 'Descarcă CV-ul',
+    findMeOn: 'Mă poți găsi și pe LinkedIn, ',
+    here: 'aici',
     sendButton: 'Trimite',
   },
 } as const;

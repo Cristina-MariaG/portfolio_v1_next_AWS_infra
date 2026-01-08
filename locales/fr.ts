@@ -38,12 +38,15 @@ export default {
 
   portfolio: {
     title: 'Portfolio',
-    introTitle:
-      'Au fil du temps, j’ai participé à de nombreux projets, aussi bien académiques que professionnels. Cette sélection présente des projets complexes que j’ai conçus, développés et livrés de manière autonome, de bout en bout.',
+    introTitle: 'Au fil du temps, j’ai travaillé sur de nombreux projets, à la fois académiques et professionnels.',
+
+    introDescription0:
+      'Vous trouverez ci-dessous une sélection de projets en développement web et DevOps, conçus, développés et livrés de manière indépendante, illustrant la maîtrise des technologies utilisées et les compétences acquises face aux défis propres à chaque projet. D’autres projets, réalisés individuellement ou en collaboration, ne sont pas inclus dans cette sélection.',
+
     introDescription1:
-      'D’autres projets, réalisés seule ou en collaboration, ne sont pas présentés ici. N’hésitez pas à me contacter si vous souhaitez plus de détails ; une page dédiée est disponible un peu plus bas.',
-    introDescription2:
-      'Vous trouverez ici un aperçu de projets en développement web ainsi qu’un projet DevOps. Ils illustrent ma maîtrise des technologies utilisées et les compétences développées face aux défis propres à chaque projet.',
+      'Un exemple est ce site, qui illustre mon approche end-to-end, ayant été entièrement conçu, développé et mis en production par mes soins. Le projet combine le développement web avec des pratiques DevOps modernes, notamment Next.js et Tailwind CSS, la conteneurisation et le déploiement avec Docker, la mise en place d’une pipeline CI/CD GitLab avec des scripts d’automatisation, l’Infrastructure as Code utilisant Terraform et Ansible, ainsi que l’hébergement et le déploiement cloud sur AWS.',
+
+    introDescription2: 'Si vous souhaitez obtenir plus de détails, n’hésitez pas à me contacter ; une page dédiée est disponible un peu plus bas.',
   },
 
   ecodb: {
@@ -116,10 +119,11 @@ export default {
   },
 
   contactPage: {
-    title: 'Me contacter',
-    sendMessage: 'Envoyez-moi un message via le formulaire ci-dessous :',
-    findMeOn: 'Vous pouvez également me retrouver sur LinkedIn',
-    dwnloadCV: 'Télécharger mon CV',
+    title: 'Contactez-moi',
+    forMoreInfos: 'Pour plus d’informations et mes coordonnées, téléchargez mon CV ',
+    sendMessage: 'Envoyez-moi un message en utilisant le formulaire ci-dessous :',
+    findMeOn: 'Vous pouvez également me trouver sur LinkedIn, ',
+    here: 'ici',
     sendButton: 'Envoyer',
   },
 } as const;

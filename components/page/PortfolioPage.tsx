@@ -14,6 +14,7 @@ export default function PortfolioPage() {
 
         <div className='md:w-3/4  text-start'>
           <p className='md:w-3/4'>{t('portfolio.introTitle')}</p>
+          <p className='md:w-3/4 mt-4'>{t('portfolio.introDescription0')}</p>
           <p className='md:w-3/4 mt-4'>{t('portfolio.introDescription1')}</p>
           <p className='md:w-3/4 mt-4'>{t('portfolio.introDescription2')}</p>
         </div>

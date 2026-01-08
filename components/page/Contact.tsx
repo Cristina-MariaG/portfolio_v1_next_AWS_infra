@@ -49,7 +49,19 @@ const Contact = () => {
       </div>
 
       <div className='flex flex-col md:justify-center flex-1 gap-5 pt-5 dark:bg-grey'>
+        <p className='text-base md:text-lg w-full md:w-3/4 self-center mb-4'>
+          {t('contactPage.forMoreInfos')}
+          <a
+            href='/CV_Cristina_Ghinda.pdf'
+            download
+            className='inline-flex items-center gap-2 px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition'
+          >
+            {t('contactPage.here')}
+            <FontAwesomeIcon icon={faDownload} className='fa-2xl fa-solid' />
+          </a>
+        </p>
         <p className='text-base md:text-lg w-full md:w-3/4 self-center mb-4'>{t('contactPage.sendMessage')}</p>
+
         <div className='w-full md:w-3/4 p-4 self-center'>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full'>
             <input
@@ -84,25 +96,15 @@ const Contact = () => {
           </form>
         </div>
 
-        <p className='text-gray-500 self-center'>
+        <p className='text-gray-500 text-base  md:text-lg w-full md:w-3/4 self-center ps-4 '>
+          {t('contactPage.findMeOn')}
           <a
             href='https://www.linkedin.com/in/cristina-maria-1a073b20b/'
             target='_blank'
             rel='noopener noreferrer'
-            className='text-blue-600 hover:underline'
+            className='text-blue-600 hover:underline underline'
           >
-            {t('contactPage.findMeOn')}
-          </a>
-        </p>
-        <p className='self-center'>
-          <a
-            href='/CV_Cristina_Ghinda.pdf'
-            download
-            className='inline-flex items-center gap-2 px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition'
-          >
-            <FontAwesomeIcon icon={faDownload} className='fa-2xl fa-solid' />
-
-            {t('contactPage.dwnloadCV')}
+            {t('contactPage.here')}
           </a>
         </p>
       </div>
