@@ -1,8 +1,5 @@
 // locales/ro.ts
 export default {
-  hello: 'Salut',
-  'hello.world': 'Salut lume!',
-  welcome: 'Bun venit, {name}!',
   aboutMe: 'Despre mine',
   profil: 'Profil',
   contact: 'Contact',
@@ -10,10 +7,10 @@ export default {
 
   homePage: {
     title: 'Bine ai venit pe site-ul meu personal',
-    dev: 'Dezvoltator Full Stack',
+    dev: 'Full Stack Developer',
     devOps: 'Inginer DevOps',
     description:
-      'Sunt Cristina Ghinda, dezvoltator Full Stack și inginer DevOps pasionată. Explorează portofoliul meu pentru a descoperi proiectele și expertiza mea în dezvoltare web și managementul infrastructurii.',
+      'Sunt Cristina Ghinda, Full Stack developer și inginer DevOps pasionată. Explorează portofoliul meu pentru a descoperi proiectele și expertiza mea în dezvoltare web și managementul infrastructurii.',
   },
 
   about: {
@@ -24,13 +21,13 @@ export default {
       'În 2020, m-am mutat în Franța pentru a urma noi provocări academice și profesionale. Mi-am continuat studiile și am obținut toate diplomele cu mențiuni și felicitări din partea juriului, confirmând un nivel academic ridicat într-un context internațional.',
 
     paragraph3:
-      'În această perioadă am descoperit dezvoltarea web și m-am specializat rapid în full stack JavaScript și DevOps. Am finalizat un bootcamp full stack, o ucenicie ca dezvoltator JavaScript și un program de inginerie DevOps, remarcându-mă prin rigoare tehnică și autonomie.',
+      'În această perioadă am descoperit web development-ul și m-am specializat rapid în full stack JavaScript și DevOps. Am finalizat un bootcamp full stack, o ucenicie ca dezvoltator JavaScript și un program de inginerie DevOps, remarcându-mă prin rigoare tehnică și autonomie.',
 
     paragraph4:
       'Pentru fiecare proiect major realizat, comisiile de evaluare și juriile au evidențiat calitatea, profunzimea și caracterul complet al muncii mele, apreciind capacitatea mea de a duce proiecte complexe de la faza de concepție până la producție.',
 
     paragraph5:
-      'În prezent, ca dezvoltator full stack și inginer DevOps, proiectez interfețe front-end responsive și intuitive, dezvolt API-uri REST sigure și scalabile și automatizez procesele de deployment folosind practici DevOps moderne.',
+      'În prezent, ca full stack developer și inginer DevOps, proiectez interfețe front-end responsive și intuitive, dezvolt API-uri REST sigure și scalabile și automatizez procesele de deployment folosind practici DevOps moderne.',
 
     paragraph6:
       'Parcursul meu — din România în Franța, de la excelență academică la aplicații pregătite pentru producție — reflectă capacitatea mea de adaptare rapidă, de învățare continuă și de performanță la nivel înalt. Sunt pasionată de crearea unor soluții elegante și fiabile care transformă idei complexe în produse digitale cu impact.',

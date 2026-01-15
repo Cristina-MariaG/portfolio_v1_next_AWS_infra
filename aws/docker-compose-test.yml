@@ -37,8 +37,12 @@ services:
         max-file: '3'
     ports:
       - '3000:3000'
-    environment:
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASS=${SMTP_PASS}
-      - CONTACT_TO=${CONTACT_TO}
+    env_file:
+      - .env
+    # don t forget to set these env vars in the .env file
+
+    # environment: si on ajoute les vars comme ça, apres il faut passer ces vars a chaque fois quand on veut relancer docker pour que la nouvelle img soit prise en  compte
+    #   - SMTP_HOST=${SMTP_HOST}
+    #   - SMTP_USER=${SMTP_USER}
+    #   - SMTP_PASS=${SMTP_PASS}
+    #   - CONTACT_TO=${CONTACT_TO}
