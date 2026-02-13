@@ -49,7 +49,9 @@ ping
 ssh -i myfirstvps.pem <utilisateur>@<adresse_IP>
 
 debian
- ssh -i ./cris_portfolio.pem admin@35.180.65.154
+ ssh -i ./cris_portofolio.pem admin@35.180.65.154
+
+ssh -i ~/cris_portofolio.pem admin@35.180.65.154
 
 npx eslint . --ext .js,.ts,.tsx --max-warnings=0
 

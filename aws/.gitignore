@@ -7,3 +7,4 @@ promtool
 .ssh/cris_portfolio.pem
 .env
 .env.local
+*.ini
