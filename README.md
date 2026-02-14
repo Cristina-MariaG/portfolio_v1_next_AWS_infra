@@ -36,7 +36,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
-docker push miksiei2024/cris_portfolio:tagname
+docker push name_img_dockerhub
 
 docker compose -f docker-compose-test.yml up -d
 
@@ -49,9 +49,9 @@ ping
 ssh -i myfirstvps.pem <utilisateur>@<adresse_IP>
 
 debian
- ssh -i ./cris_portofolio.pem admin@35.180.65.154
+ ssh -i ./cris_portofolio.pem admin@
 
-ssh -i ~/cris_portofolio.pem admin@35.180.65.154
+ssh -i ~/cris_portofolio.pem admin@
 
 npx eslint . --ext .js,.ts,.tsx --max-warnings=0
 
@@ -69,3 +69,4 @@ docker compose down
 docker system prune -af
 docker compose build --no-cache
 docker compose up -d
+
