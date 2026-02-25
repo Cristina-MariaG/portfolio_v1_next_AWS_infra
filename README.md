@@ -77,7 +77,7 @@ The app-version was deployed on an AWS EC2 instance (Debian) and served via Dock
 ### Connect to the instance
 
 ```bash
-ssh -i ~/cris_portofolio.pem admin@<EC2_PUBLIC_IP>
+ssh -i public_key admin@<EC2_PUBLIC_IP>
 ```
 
 ### Push Docker image to Docker Hub
@@ -135,4 +135,5 @@ docker compose exec <service_name> env | grep SMTP
 **Cristina-Maria G.**  
 🌍 New version of the portfolio: [iamcristinadev.xyz](https://iamcristinadev.xyz)  
 🐙 GitHub: [Cristina-MariaG](https://github.com/Cristina-MariaG)
+
 
