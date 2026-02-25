@@ -1,72 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Portfolio v1 — Next.js + AWS Infrastructure
 
-## Getting Started
+> ⚠️ **This is version 1 of my portfolio.** A newer, improved version is available at **[iamcristinadev.xyz](https://iamcristinadev.xyz)** — check it out!
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📌 Overview
+
+This is the first version of my personal developer portfolio, built with **Next.js** and deployed on **AWS** using a Dockerized infrastructure. It includes internationalization support, a CI/CD pipeline via GitLab CI, and is served from an EC2 instance.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js (TypeScript), Tailwind CSS |
+| Containerization | Docker, Docker Compose |
+| Cloud | AWS EC2 |
+| CI/CD | GitLab CI (`.gitlab-ci.yml`) |
+| Linting | ESLint |
+| i18n | Custom `locales/` setup |
+
+---
+
+## 📁 Project Structure
+
+```
+├── app/                  # Next.js app directory (pages & layouts)
+├── components/           # Reusable React components
+├── lib/                  # Utility functions
+├── locales/              # Internationalization files
+├── public/               # Static assets
+├── types/                # TypeScript type definitions
+├── aws/                  # AWS-related config/scripts
+├── images_site/          # Site images
+├── Dockerfile            # Production Docker image
+├── Dockerfile_test       # Test Docker image
+├── docker-compose.yml    # Docker Compose config
+├── .gitlab-ci.yml        # CI/CD pipeline
+├── middleware.ts         # Next.js middleware (i18n routing, etc.)
+├── next.config.ts        # Next.js configuration
+└── tailwind.config.ts    # Tailwind CSS configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- Node.js 18+
+- Docker & Docker Compose
 
-To learn more about Next.js, take a look at the following resources:
+### Run locally (without Docker)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+### Run locally with Docker
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker compose build --no-cache
+docker compose up -d
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
 
+## ☁️ Deployment (AWS EC2)
 
-docker push name_img_dockerhub
+The app is deployed on an AWS EC2 instance (Debian) and served via Docker.
 
-docker compose -f docker-compose-test.yml up -d
+### Connect to the instance
 
+```bash
+ssh -i ~/cris_portofolio.pem admin@<EC2_PUBLIC_IP>
+```
 
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs-general.html#connection-prereqs-get-info-about-instance
+### Push Docker image to Docker Hub
 
+```bash
+docker push <your_dockerhub_image_name>
+```
 
-ping 
+### Deploy on EC2
 
-ssh -i myfirstvps.pem <utilisateur>@<adresse_IP>
+```bash
+docker compose up -d
+```
 
-debian
- ssh -i ./cris_portofolio.pem admin@
+### Clean Docker cache after Dockerfile changes
 
-ssh -i ~/cris_portofolio.pem admin@
-
-npx eslint . --ext .js,.ts,.tsx --max-warnings=0
-
-
-docker exec -it <nom_du_conteneur> env
-
-docker compose exec <service_docker_compose_name> env | grep SMTP
-
-
-![alt text](image.png)
-
-
-netoyage docker after changing dockerfile :
+```bash
 docker compose down
 docker system prune -af
 docker compose build --no-cache
 docker compose up -d
+```
 
+---
+
+## 🔁 CI/CD Pipeline
+
+The project uses **GitLab CI** (`.gitlab-ci.yml`) to automate build and deployment on push.
+
+---
+
+## 🔍 Useful Commands
+
+```bash
+# Lint the project
+npx eslint . --ext .js,.ts,.tsx --max-warnings=0
+
+# Check env variables inside a running container
+docker exec -it <container_name> env
+docker compose exec <service_name> env | grep SMTP
+```
+
+---
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [AWS EC2 Connection Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs-general.html)
+- [Docker Documentation](https://docs.docker.com/)
+
+---
+
+## 👩‍💻 Author
+
+**Cristina-Maria G.**  
+🌍 New version of the portfolio: [iamcristinadev.xyz](https://iamcristinadev.xyz)  
+🐙 GitHub: [Cristina-MariaG](https://github.com/Cristina-MariaG)
