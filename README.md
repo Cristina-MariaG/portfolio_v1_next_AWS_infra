@@ -72,7 +72,7 @@ docker compose up -d
 
 ## ☁️ Deployment (AWS EC2)
 
-The app is deployed on an AWS EC2 instance (Debian) and served via Docker.
+The app-version was deployed on an AWS EC2 instance (Debian) and served via Docker.
 
 ### Connect to the instance
 
@@ -135,3 +135,4 @@ docker compose exec <service_name> env | grep SMTP
 **Cristina-Maria G.**  
 🌍 New version of the portfolio: [iamcristinadev.xyz](https://iamcristinadev.xyz)  
 🐙 GitHub: [Cristina-MariaG](https://github.com/Cristina-MariaG)
+
